@@ -12,8 +12,11 @@ class GroupsController < ApplicationController
   end
   def update
      @group = Group.find(params[:id])
-     @group.update(group_params)
-     redirect_to groups_path, notice: "Upadte Success"
+     if @group.update(group_params)
+       redirect_to groups_path, notice: "Upadte Success"
+     else
+       render :edit
+     end
    end
 
    def destroy
