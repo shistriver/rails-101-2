@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.group = @group
     if @post.update(post_params)
-      redirect_to group_path(@group), notice: 'Post Updated'
+      redirect_to account_posts_path, notice: 'Post Updated'
     else
       render :edit
     end
