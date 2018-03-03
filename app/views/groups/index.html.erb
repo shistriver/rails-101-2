@@ -15,4 +15,12 @@
       <%= render :partial => "group_item", :collection => @groups, :as => :group %>
     </tbody>
   </table>
+  <script type="text/javascript">
+    mixpanel.track_links(".group a", "Clicked New Group link", function(element) {
+      return { text: $(element).html().replace(/(<([^>]+)>)/ig, "").trim() }
+    });
+    mixpanel.track_links(".table a", "Clicked Title link", function(element) {
+      return { text: $(element).html().replace(/(<([^>]+)>)/ig, "").trim() }
+    });
+  </script>
 </div>
